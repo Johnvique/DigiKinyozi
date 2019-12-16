@@ -18,6 +18,9 @@
   <!-- Custom styles for this template-->
 <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+ <!-- Custom styles for this page -->
+<link href="{{asset('vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -31,9 +34,10 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-scissors"></i>
+          <img class="img-sider rounded-circle" src="{{asset('images/user1.png')}}" alt="img-thumnail" 
+          style="width: 5em; height: 5em">
         </div>
-        <div class="sidebar-brand-text mx-3">Digital Kinyozi<br> System</div>
+        <div class="sidebar-brand-text mx-3">Digital Kinyozi</div>
       </a>
 
       <!-- Divider -->
@@ -63,7 +67,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Cuts Components:</h6>
-            <a class="collapse-item" href="buttons.html">Add Services</a>
+          <a class="collapse-item" href="{{url('dashboard/services')}}">Add Services</a>
           </div>
         </div>
       </li>
@@ -77,7 +81,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Menu Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Add Menu</a>
+          <a class="collapse-item" href="{{url('dashboard/menu')}}">Add Menu</a>
           </div>
         </div>
       </li>
@@ -91,7 +95,7 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Booking Screens:</h6>
-            <a class="collapse-item" href="login.html">Add Booking</a>
+          <a class="collapse-item" href="{{url('dashboard/booking')}}">Add Booking</a>
           </div>
         </div>
       </li>
@@ -105,7 +109,7 @@
               <div id="collapseArtists" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                   <h6 class="collapse-header">Arists Area:</h6>
-                  <a class="collapse-item" href="login.html">Add Artists</a>
+                <a class="collapse-item" href="{{url('dashboard/artist')}}">Add Artists</a>
                 </div>
               </div>
             </li>
@@ -119,7 +123,7 @@
         <div id="collapseClients" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Clients Area:</h6>
-            <a class="collapse-item" href="login.html">Add Clients</a>
+          <a class="collapse-item" href="{{url('dashboard/client')}}">Add Clients</a>
           </div>
         </div>
       </li>
@@ -175,7 +179,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} </span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              <img class="img-profile rounded-circle" src="{{asset('images/user2.png')}}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -264,6 +268,13 @@
 <!-- Page level custom scripts -->
 <script src="{{asset('js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('js/demo/chart-pie-demo.js')}}"></script>
+
+  <!-- Page level plugins -->
+<script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+  <!-- Page level custom scripts -->
+<script src="{{asset('js/demo/datatables-demo.js')}}"></script>
 
 </body>
 
