@@ -19,11 +19,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/index', function () {
         return view('dashboard/index');
     });
-Route::get('dashboard/services', 'ServicesController@index');
-Route::get('dashboard/client', 'ClientController@index');
-Route::get('dashboard/menu', 'MenuController@index');
-Route::get('dashboard/artist', 'ArtistController@index');
-Route::get('dashboard/booking', 'BookingController@index');      
+    Route::get('/dashboard/services', function () {
+        return view('dashboard/services');
+    });
+    Route::get('/dashboard/artist', function () {
+        return view('dashboard/artist');
+    });
+    Route::get('/dashboard/booking', function () {
+        return view('dashboard/booking');
+    });
+    Route::get('/dashboard/client', function () {
+        return view('dashboard/client');
+    });
+    Route::get('/dashboard/menu', function () {
+        return view('dashboard/menu');
+    });   
 });
   
 
