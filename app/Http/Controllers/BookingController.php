@@ -35,7 +35,17 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking = new Booking;
+        $booking->clin_name =$request->get ('clin_name');
+        $booking->book_date =$request->get ('book_date');
+        $booking->service_booked =$request->get ('service_booked');
+        $booking->book_time =$request->get ('book_time');
+        $booking->customer_phone =$request->get ('customer_phone');
+        $booking->customer_mail =$request->get ('customer_mail');
+        $booking->message =$request->get ('message');
+
+        $booking ->save();
+        return redirect()->back();
     }
 
     /**

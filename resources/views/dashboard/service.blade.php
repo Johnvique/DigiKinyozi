@@ -6,7 +6,7 @@
        <!-- Button trigger modal -->
     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
             <i class="fa fa-plus-square" aria-hidden="true"></i>
-      Add Artist
+      Add Service
     </button>
       <button type="button" class="btn btn-info">
           <i class="fa fa-file-excel" aria-hidden="true"></i>
@@ -22,7 +22,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title bg-lg bg-info text-white" id="exampleModalLabel">Manage Artists</h5>
+              <h5 class="modal-title bg-lg bg-info text-white" id="exampleModalLabel">Manage Services</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -30,23 +30,19 @@
             <div class="modal-body">
               <div class="card">
                 <div class="card-body">
-                <form action="{{route('artist.store')}}" method="POST">
-                  @csrf
+                <form action="{{route('service.store')}}" method="POST">
+                    @csrf
                     <div class="form-group">
-                      <label for="user">Artist Name</label>
-                      <input type="text" class="form-control" name="artist_name" id="user" aria-describedby="emailHelp" placeholder="Name" required>
+                      <label for="service_name">Service Name</label>
+                      <input type="text" class="form-control" name="services_name" id="service_name" placeholder="Name of the service" required>
                     </div>
                     <div class="form-group">
-                      <label for="Phone_num">Phone Number</label>
-                      <input type="text" class="form-control" name="artist_phone" id="Phone_num" placeholder="Phone Number" required>
+                      <label for="serve_price">Service Price</label>
+                      <input type="text" class="form-control" name="services_price" id="serve_price" placeholder="Price of the service" required>
                     </div>
                     <div class="form-group">
-                      <label for="post">Role</label>
-                      <input type="text" class="form-control" name="artist_role" id="post" placeholder="Position" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="img">Artist Image</label>
-                      <input type="text" class="form-control" name="artist_image" id="img" placeholder="Image" required>
+                      <label for="sex">Gender Served</label>
+                      <input type="text" class="form-control" name="gender" id="sex" placeholder="Gender Served" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Reset</button>
@@ -62,7 +58,7 @@
       </div>
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-info">Manage Artists</h6>
+          <h6 class="m-0 font-weight-bold text-info">Manage Services</h6>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -73,7 +69,6 @@
                 <th>Artist Name</th>
                 <th>Phone Number</th>
                 <th>Role</th>
-                <th>Artist Image</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -83,7 +78,6 @@
                 <td>System Architect</td>
                 <td>Edinburgh</td>
                 <td>61</td>
-                <td>2011/04/25</td>
                 <td>edit,delete</td>
             </tr>
             <tr>
@@ -91,7 +85,6 @@
               <td>System Architect</td>
               <td>Edinburgh</td>
               <td>61</td>
-              <td>2011/04/25</td>
               <td>edit,delete</td>
             </tr>
         </tbody>
@@ -101,7 +94,6 @@
               <th>Artist Name</th>
               <th>Phone Number</th>
               <th>Role</th>
-              <th>Artist Image</th>
               <th>Action</th>
             </tr>
         </tfoot>

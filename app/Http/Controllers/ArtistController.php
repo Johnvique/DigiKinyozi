@@ -14,7 +14,7 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $artist =
+        //
     }
 
     /**
@@ -35,7 +35,14 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artist = new Artist;
+        $artist ->artist_name =$request->get ('artist_name');
+        $artist ->artist_phone =$request->get ('artist_phone');
+        $artist ->artist_role =$request->get ('artist_role');
+        $artist ->artist_image =$request->get ('artist_image'); 
+
+        $artist ->save();
+        return redirect()->back();
     }
 
     /**

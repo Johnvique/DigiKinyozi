@@ -19,8 +19,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard/index', function () {
         return view('dashboard/index');
     });
-    Route::get('/dashboard/services', function () {
-        return view('dashboard/services');
+    Route::get('/dashboard/service', function () {
+        return view('dashboard/service');
     });
     Route::get('/dashboard/artist', function () {
         return view('dashboard/artist');
@@ -41,7 +41,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('services', 'ServicesController');
+Route::resource('service', 'ServiceController');
 Route::resource('client', 'ClientController');
 Route::resource('menu', 'MenuController');
 Route::resource('artist', 'ArtistController');

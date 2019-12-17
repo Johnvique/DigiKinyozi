@@ -30,71 +30,39 @@
             <div class="modal-body">
               <div class="card">
                 <div class="card-body">
-                    <form class="needs-validation" novalidate>
-                        <div class="form-row">
-                          <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">First name</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name" value="Mark" required>
-                            <div class="valid-feedback">
-                              Looks good!
-                            </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="validationCustom02">Last name</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>
-                            <div class="valid-feedback">
-                              Looks good!
-                            </div>
-                          </div>
-                          <div class="col-md-4 mb-3">
-                            <label for="validationCustomUsername">Username</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                              </div>
-                              <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
-                              <div class="invalid-feedback">
-                                Please choose a username.
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-row">
-                          <div class="col-md-6 mb-3">
-                            <label for="validationCustom03">City</label>
-                            <input type="text" class="form-control" id="validationCustom03" placeholder="City" required>
-                            <div class="invalid-feedback">
-                              Please provide a valid city.
-                            </div>
-                          </div>
-                          <div class="col-md-3 mb-3">
-                            <label for="validationCustom04">State</label>
-                            <input type="text" class="form-control" id="validationCustom04" placeholder="State" required>
-                            <div class="invalid-feedback">
-                              Please provide a valid state.
-                            </div>
-                          </div>
-                          <div class="col-md-3 mb-3">
-                            <label for="validationCustom05">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
-                            <div class="invalid-feedback">
-                              Please provide a valid zip.
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                            <label class="form-check-label" for="invalidCheck">
-                              Agree to terms and conditions
-                            </label>
-                            <div class="invalid-feedback">
-                              You must agree before submitting.
-                            </div>
-                          </div>
-                        </div>
-                        <button class="btn btn-primary" type="submit">Submit form</button>
-                      </form>
+                <form action="{{route('booking.store')}}" method="POST">
+                  @csrf
+                    <div class="form-group">
+                      <label for="user">Client Name</label>
+                      <input type="text" class="form-control" name="clin_name" id="user" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="book_date">Booking Date</label>
+                      <input type="date" class="form-control" name="book_date" id="book_date" placeholder="Date of Booking" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="serv_book">Service Booked</label>
+                      <input type="text" class="form-control" name="service_booked" id="serv_book" placeholder="Service Booked" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="time_book">Booking Time</label>
+                      <input type="text" class="form-control" name="book_time" id="time_book" placeholder="Booking Time" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="cust_phone">Customer Phone</label>
+                      <input type="text" class="form-control" name="customer_phone" id="cust_phone" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="cus_mail">Customer Email</label>
+                      <input type="text" class="form-control" name="customer_mail" id="cust_mail" placeholder="Email Adress" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="cust_msg">Booking Message</label>
+                      <textarea class="form-control" name="message" id="cust_msg" rows="2" placeholder="Enter the Text Message Here....."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Reset</button>
+                  </form> 
                 </div>
               </div>
             </div>
@@ -104,70 +72,54 @@
           </div>
         </div>
       </div>
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012/03/29</td>
-                <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Donna Snider</td>
-                <td>Customer Support</td>
-                <td>New York</td>
-                <td>27</td>
-                <td>2011/01/25</td>
-                <td>$112,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-info">Manage Bookings</h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+              <thead>
+                  <tr>
+                      <th>SI</th>
+                      <th>Artist Name</th>
+                      <th>Phone Number</th>
+                      <th>Role</th>
+                      <th>Artist Image</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Tiger Nixon</td>
+                      <td>System Architect</td>
+                      <td>Edinburgh</td>
+                      <td>61</td>
+                      <td>2011/04/25</td>
+                      <td>edit,delete</td>
+                  </tr>
+                  <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011/04/25</td>
+                    <td>edit,delete</td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                  <tr>
+                    <th>SI</th>
+                    <th>Artist Name</th>
+                    <th>Phone Number</th>
+                    <th>Role</th>
+                    <th>Artist Image</th>
+                    <th>Action</th>
+                  </tr>
+              </tfoot>
+          </table>
+          </div>
+      </div>
 </div>
     
 @endsection

@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('dashboard/index')}}">
         <div class="sidebar-brand-icon rotate-n-15">
           <img class="img-sider rounded-circle" src="{{asset('images/user1.png')}}" alt="img-thumnail" 
           style="width: 5em; height: 5em">
@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+      <a class="nav-link" href="{{url('dashboard/index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -60,13 +60,13 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-wrench"></i>
+          <i class="fa fa-cogs"></i>
           <span>Services</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Cuts Components:</h6>
-          <a class="collapse-item" href="{{url('dashboard/services')}}">Add Services</a>
+          <a class="collapse-item" href="{{url('dashboard/service')}}">Add Services</a>
           </div>
         </div>
       </li>
@@ -74,7 +74,7 @@
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fa fa-bars"></i>
           <span>Our Menu</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
@@ -88,7 +88,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-book"></i>
+          <i class="fa fa-anchor"></i>
           <span>Bookings</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -102,7 +102,7 @@
             <!-- Nav Item - Artists Collapse Menu -->
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArtists" aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user-plus"></i>
                 <span>Artists</span>
               </a>
               <div id="collapseArtists" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -251,6 +251,12 @@
   </div>
 </div>
 
+
+<script>
+$(document).ready(function() {
+  $('#example').DataTable();
+} );
+</script>
   <!-- Bootstrap core JavaScript-->
   <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
   <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

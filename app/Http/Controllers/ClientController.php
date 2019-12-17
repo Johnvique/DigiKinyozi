@@ -24,7 +24,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+       //
     }
 
     /**
@@ -35,7 +35,15 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = new Client;
+        $client->client_name=$request->get ('client_name');
+        $client->client_mail=$request->get ('client_mail');
+        $client->client_phone=$request->get ('client_phone');
+        $client->client_location=$request->get ('client_location');
+        $client->client_image=$request->get ('client_image');
+
+        $client->save();
+        return redirect()->back();
     }
 
     /**

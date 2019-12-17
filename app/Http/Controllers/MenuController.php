@@ -35,7 +35,12 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $menu = new Menu;
+        $menu->service_name =$request ->get ('service_name');
+        $menu->service_price =$request ->get ('service_price');
+        
+        $menu ->save();
+        return redirect()->back();
     }
 
     /**
