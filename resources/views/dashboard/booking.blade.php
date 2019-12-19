@@ -82,38 +82,41 @@
               <thead>
                   <tr>
                       <th>SI</th>
-                      <th>Artist Name</th>
-                      <th>Phone Number</th>
-                      <th>Role</th>
-                      <th>Artist Image</th>
+                      <th>Client Name</th>
+                      <th>Booking Date</th>
+                      <th>Service Booked</th>
+                      <th>Booking Time</th>
+                      <th>Customer Phone</th>
+                      <th>Customer Email</th>
+                      <th>Booking Message</th>
                       <th>Action</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>edit,delete</td>
-                  </tr>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>edit,delete</td>
-                  </tr>
+                @foreach ($bookings as $booking)
+                <tr>
+                <td>{{$booking->id}}</td>
+                  <td>{{$booking->clin_name}}</td>
+                  <td>{{$booking->book_date}}</td>
+                  <td>{{$booking->service_booked}}</td>
+                  <td>{{$booking->book_time}}</td>
+                  <td>{{$booking->customer_phone}}</td>
+                  <td>{{$booking->customer_mail}}</td>
+                  <td>{{$booking->message}}</td>
+                  <td>edit,delete</td>
+              </tr>  
+                @endforeach
               </tbody>
               <tfoot>
                   <tr>
                     <th>SI</th>
-                    <th>Artist Name</th>
-                    <th>Phone Number</th>
-                    <th>Role</th>
-                    <th>Artist Image</th>
+                    <th>Client Name</th>
+                    <th>Booking Date</th>
+                    <th>Service Booked</th>
+                    <th>Booking Time</th>
+                    <th>Customer Phone</th>
+                    <th>Customer Email</th>
+                    <th>Booking Message</th>
                     <th>Action</th>
                   </tr>
               </tfoot>

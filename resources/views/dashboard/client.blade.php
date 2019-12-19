@@ -74,38 +74,35 @@
               <thead>
                   <tr>
                       <th>SI</th>
-                      <th>Artist Name</th>
-                      <th>Phone Number</th>
-                      <th>Role</th>
-                      <th>Artist Image</th>
+                      <th>Client Name</th>
+                      <th>Client Email</th>
+                      <th>Client Phone</th>
+                      <th>Client Location</th>
+                      <th>Client Image</th>
                       <th>Action</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>edit,delete</td>
-                  </tr>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>edit,delete</td>
-                  </tr>
+                @foreach ($clients as $client)
+                <tr>
+                <td>{{$client->id}}</td>
+                  <td>{{$client->client_name}}</td>
+                  <td>{{$client->client_mail}}</td>
+                  <td>{{$client->client_phone}}</td>
+                  <td>{{$client->client_location}}</td>
+                  <td>{{$client->client_image}}</td>
+                  <td>edit,delete</td>
+              </tr>   
+                @endforeach
               </tbody>
               <tfoot>
                   <tr>
                     <th>SI</th>
-                    <th>Artist Name</th>
-                    <th>Phone Number</th>
-                    <th>Role</th>
-                    <th>Artist Image</th>
+                    <th>Client Name</th>
+                    <th>Client Email</th>
+                    <th>Client Phone</th>
+                    <th>Client Location</th>
+                    <th>Client Image</th>
                     <th>Action</th>
                   </tr>
               </tfoot>

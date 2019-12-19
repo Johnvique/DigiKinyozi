@@ -78,22 +78,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>edit,delete</td>
-            </tr>
-            <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>2011/04/25</td>
-              <td>edit,delete</td>
-            </tr>
+          @foreach ($artists as $artist)
+          <tr>
+          <td>{{$artist->id}}</td>
+            <td>{{$artist->artist_name}}</td>
+            <td>{{$artist->artist_phone}}</td>
+            <td>{{$artist->artist_role}}</td>
+            <td>{{$artist->artist_image}}</td>
+            <td>edit,delete</td>
+        </tr>
+          @endforeach
         </tbody>
         <tfoot>
             <tr>

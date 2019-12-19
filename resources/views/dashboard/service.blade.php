@@ -66,34 +66,29 @@
         <thead>
             <tr>
                 <th>SI</th>
-                <th>Artist Name</th>
-                <th>Phone Number</th>
-                <th>Role</th>
+                <th>Service Name</th>
+                <th>Service Price</th>
+                <th>Gender Served</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>edit,delete</td>
-            </tr>
-            <tr>
-              <td>Tiger Nixon</td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>61</td>
-              <td>edit,delete</td>
-            </tr>
+      @foreach ($services as $service)
+      <tr>
+      <td>{{$service->id}}</td>
+      <td>{{$service->services_name}}</td>
+      <td>{{$service->services_price}}</td>
+      <td>{{$service->gender}}</td>
+      <td>edit,delete</td>
+      </tr>
+      @endforeach
         </tbody>
         <tfoot>
             <tr>
               <th>SI</th>
-              <th>Artist Name</th>
-              <th>Phone Number</th>
-              <th>Role</th>
+              <th>Service Name</th>
+              <th>Service Price</th>
+              <th>Gender Served</th>
               <th>Action</th>
             </tr>
         </tfoot>

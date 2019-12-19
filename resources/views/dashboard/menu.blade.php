@@ -62,38 +62,26 @@
               <thead>
                   <tr>
                       <th>SI</th>
-                      <th>Artist Name</th>
-                      <th>Phone Number</th>
-                      <th>Role</th>
-                      <th>Artist Image</th>
+                      <th>Service Name</th>
+                      <th>Service Price</th>
                       <th>Action</th>
                   </tr>
               </thead>
               <tbody>
-                  <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>edit,delete</td>
-                  </tr>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>edit,delete</td>
-                  </tr>
+                @foreach ($menus as $menu)
+                <tr>
+                <td>{{$menu->id}}</td>
+                <td>{{$menu->service_name}}</td>
+                <td>{{$menu->service_price}}</td>
+                <td>edit,delete</td>
+              </tr> 
+                @endforeach
               </tbody>
               <tfoot>
                   <tr>
                     <th>SI</th>
-                    <th>Artist Name</th>
-                    <th>Phone Number</th>
-                    <th>Role</th>
-                    <th>Artist Image</th>
+                    <th>Service Name</th>
+                    <th>Service Price</th>
                     <th>Action</th>
                   </tr>
               </tfoot>

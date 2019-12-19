@@ -207,7 +207,9 @@
     <footer class="sticky-footer bg-white">
       <div class="container my-auto">
         <div class="copyright text-center my-auto">
-          <span>Copyright &copy; Your Website 2019</span>
+          <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script>| 
+            <a href="{{url('http://johnvique.info')}}">
+            Digital Kinyozi</a> | All rights reserved.</p>
         </div>
       </div>
     </footer>

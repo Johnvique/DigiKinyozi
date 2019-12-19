@@ -16,24 +16,12 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard/index', function () {
-        return view('dashboard/index');
-    });
-    Route::get('/dashboard/service', function () {
-        return view('dashboard/service');
-    });
-    Route::get('/dashboard/artist', function () {
-        return view('dashboard/artist');
-    });
-    Route::get('/dashboard/booking', function () {
-        return view('dashboard/booking');
-    });
-    Route::get('/dashboard/client', function () {
-        return view('dashboard/client');
-    });
-    Route::get('/dashboard/menu', function () {
-        return view('dashboard/menu');
-    });   
+    Route::get('dashboard/index', 'DashboardController@index');
+    Route::get('/dashboard/service','ServiceController@index');
+    Route::get('/dashboard/menu','MenuController@index');
+    Route::get('/dashboard/booking','BookingController@index');
+    Route::get('/dashboard/artist','ArtistController@index');
+    Route::get('/dashboard/client','ClientController@index');
 });
   
 
