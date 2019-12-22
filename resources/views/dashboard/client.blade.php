@@ -79,7 +79,8 @@
                       <th>Client Phone</th>
                       <th>Client Location</th>
                       <th>Client Image</th>
-                      <th>Action</th>
+                      <th>Update</th>
+                      <th>Delete</th>
                   </tr>
               </thead>
               <tbody>
@@ -91,7 +92,8 @@
                   <td>{{$client->client_phone}}</td>
                   <td>{{$client->client_location}}</td>
                   <td>{{$client->client_image}}</td>
-                  <td>edit,delete</td>
+                  <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
+                  <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
               </tr>   
                 @endforeach
               </tbody>
@@ -103,7 +105,8 @@
                     <th>Client Phone</th>
                     <th>Client Location</th>
                     <th>Client Image</th>
-                    <th>Action</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
               </tfoot>
           </table>

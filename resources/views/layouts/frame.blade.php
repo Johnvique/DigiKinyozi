@@ -33,10 +33,10 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('dashboard/index')}}">
         <div class="sidebar-brand-icon rotate-n-15">
-          <img class="img-sider rounded-circle" src="{{asset('images/user1.png')}}" alt="img-thumnail" 
+          <img class="img-sider rounded-circle" src="{{asset('images/kinyozi2.jpg')}}" alt="img-thumnail" 
           style="width: 5em; height: 5em">
         </div>
-        <div class="sidebar-brand-text mx-3">Digital Kinyozi</div>
+        <div class="sidebar-brand-text mx-3"><em>Digital Kinyozi</em></div>
       </a>
 
       <!-- Divider -->
@@ -158,7 +158,7 @@
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
+                <button class="btn btn-info" type="button">
                   <i class="fas fa-search fa-sm"></i>
                 </button>
               </div>
@@ -178,7 +178,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }} </span>
-              <img class="img-profile rounded-circle" src="{{asset('images/user2.png')}}">
+              <img class="img-profile rounded-circle" src="{{asset('images/user1.png')}}">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

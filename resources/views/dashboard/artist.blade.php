@@ -74,7 +74,8 @@
                 <th>Phone Number</th>
                 <th>Role</th>
                 <th>Artist Image</th>
-                <th>Action</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -85,7 +86,8 @@
             <td>{{$artist->artist_phone}}</td>
             <td>{{$artist->artist_role}}</td>
             <td>{{$artist->artist_image}}</td>
-            <td>edit,delete</td>
+            <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
+            <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
         </tr>
           @endforeach
         </tbody>
@@ -96,7 +98,8 @@
               <th>Phone Number</th>
               <th>Role</th>
               <th>Artist Image</th>
-              <th>Action</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
         </tfoot>
     </table>

@@ -69,7 +69,8 @@
                 <th>Service Name</th>
                 <th>Service Price</th>
                 <th>Gender Served</th>
-                <th>Action</th>
+                <th>Update</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -79,7 +80,8 @@
       <td>{{$service->services_name}}</td>
       <td>{{$service->services_price}}</td>
       <td>{{$service->gender}}</td>
-      <td>edit,delete</td>
+      <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
+      <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a> </td>
       </tr>
       @endforeach
         </tbody>
@@ -89,7 +91,8 @@
               <th>Service Name</th>
               <th>Service Price</th>
               <th>Gender Served</th>
-              <th>Action</th>
+              <th>Update</th>
+              <th>Delete</th>
             </tr>
         </tfoot>
     </table>

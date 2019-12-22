@@ -64,7 +64,8 @@
                       <th>SI</th>
                       <th>Service Name</th>
                       <th>Service Price</th>
-                      <th>Action</th>
+                      <th>Update</th>
+                      <th>Delete</th>
                   </tr>
               </thead>
               <tbody>
@@ -73,7 +74,8 @@
                 <td>{{$menu->id}}</td>
                 <td>{{$menu->service_name}}</td>
                 <td>{{$menu->service_price}}</td>
-                <td>edit,delete</td>
+                <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
+                <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
               </tr> 
                 @endforeach
               </tbody>
@@ -82,7 +84,8 @@
                     <th>SI</th>
                     <th>Service Name</th>
                     <th>Service Price</th>
-                    <th>Action</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
               </tfoot>
           </table>

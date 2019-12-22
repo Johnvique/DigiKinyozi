@@ -89,7 +89,8 @@
                       <th>Customer Phone</th>
                       <th>Customer Email</th>
                       <th>Booking Message</th>
-                      <th>Action</th>
+                      <th>Update</th>
+                      <th>Delete</th>
                   </tr>
               </thead>
               <tbody>
@@ -103,7 +104,8 @@
                   <td>{{$booking->customer_phone}}</td>
                   <td>{{$booking->customer_mail}}</td>
                   <td>{{$booking->message}}</td>
-                  <td>edit,delete</td>
+                  <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
+                  <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
               </tr>  
                 @endforeach
               </tbody>
@@ -117,7 +119,8 @@
                     <th>Customer Phone</th>
                     <th>Customer Email</th>
                     <th>Booking Message</th>
-                    <th>Action</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
               </tfoot>
           </table>
