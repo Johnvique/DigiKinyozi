@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use File;
 use App\Artist;
 use Illuminate\Http\Request;
 
@@ -36,11 +36,23 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->move(public_path('images'), $fileNameToStore);
+        } else {
+            $fileNameToStore = 'default.jpg';
+        }
+
+
+
         $artist = new Artist;
         $artist ->artist_name =$request->get ('artist_name');
         $artist ->artist_phone =$request->get ('artist_phone');
         $artist ->artist_role =$request->get ('artist_role');
-        $artist ->artist_image =$request->get ('artist_image'); 
+        $artist->picture = $fileNameToStore; 
 
         $artist ->save();
         return redirect()->back();
@@ -63,9 +75,12 @@ class ArtistController extends Controller
      * @param  \App\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artist $artist)
+    public function edit($id)
     {
-        //
+        $artist = Artist::find($id);
+        return view('dashboard/edit_artist', compact('artist'));
+
+        return redirect('artist');
     }
 
     /**
@@ -75,9 +90,17 @@ class ArtistController extends Controller
      * @param  \App\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request,$id)
     {
-        //
+        $artist = Artist::find($id);
+        $artist->update([
+            'artist_name'=>$request->artist_name,
+            'artist_phone'=>$request->artist_phone,
+            'artist_role'=>$request->artist_role,
+            'picture'=>$request->picture,
+        ]);
+
+        return redirect('artist');
     }
 
     /**
@@ -86,8 +109,11 @@ class ArtistController extends Controller
      * @param  \App\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artist $artist)
+    public function destroy($id)
     {
-        //
+        $artist = Artist::find($id);
+        file::delete('images/'.$artist->picture);
+        $artist->delete();
+        return redirect('artist');
     }
 }

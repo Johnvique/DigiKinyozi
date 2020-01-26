@@ -12,10 +12,10 @@
           <i class="fa fa-file-excel" aria-hidden="true"></i>
         Export Excel
      </button>
-        <button type="button" class="btn btn-info" onclick="PrintDiv()">
-              <i class="fa fa-print" aria-hidden="true"></i>
-            Print
-        </button>
+     <button type="button" class="btn btn-info">
+      <i class="fa fa-file-pdf" aria-hidden="true"></i>
+    Download PDF
+    </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,7 +69,7 @@
                 <th>Service Name</th>
                 <th>Service Price</th>
                 <th>Gender Served</th>
-                <th>Update</th>
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -80,8 +80,12 @@
       <td>{{$service->services_name}}</td>
       <td>{{$service->services_price}}</td>
       <td>{{$service->gender}}</td>
-      <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
-      <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a> </td>
+      <td><a href="{{action('ServiceController@edit', $service->id)}}" class="btn btn-info fa fa-edit btn-sm"></a></td>
+      <td><form action="{{action('ServiceController@destroy',$service->id )}}" method="post">
+        @csrf
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="btn btn-danger fa fa-trash-alt btn-sm"></button>
+         </form></td>
       </tr>
       @endforeach
         </tbody>
@@ -91,7 +95,7 @@
               <th>Service Name</th>
               <th>Service Price</th>
               <th>Gender Served</th>
-              <th>Update</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
         </tfoot>

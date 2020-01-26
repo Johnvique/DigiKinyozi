@@ -66,9 +66,12 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit($id)
     {
-        //
+        $booking = Booking::find($id);
+        return view('dashboard/edit_booking', compact('booking'));
+        
+        return redirect('booking');
     }
 
     /**
@@ -78,9 +81,20 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request,$id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->update([
+            'clin_name'=>$request->clin_name,
+            'book_date'=>$request->book_date,
+            'service_booked'=>$request->service_booked,
+            'book_time'=>$request->book_time,
+            'customer_phone'=>$request->customer_phone,
+            'customer_mail'=>$request->customer_mail,
+            'message'=>$request->message
+        ]); 
+
+        return redirect('booking');
     }
 
     /**
@@ -89,8 +103,10 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Booking $booking)
+    public function destroy($id)
     {
-        //
+        $booking = Booking::find($id);
+        $booking->delete();
+        return redirect('booking');
     }
 }

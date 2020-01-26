@@ -12,10 +12,10 @@
           <i class="fa fa-file-excel" aria-hidden="true"></i>
         Export Excel
      </button>
-        <button type="button" class="btn btn-info" onclick="PrintDiv()">
-              <i class="fa fa-print" aria-hidden="true"></i>
-            Print
-        </button>
+     <button type="button" class="btn btn-info">
+      <i class="fa fa-file-pdf" aria-hidden="true"></i>
+    Download PDF
+    </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,7 +89,7 @@
                       <th>Customer Phone</th>
                       <th>Customer Email</th>
                       <th>Booking Message</th>
-                      <th>Update</th>
+                      <th>Edit</th>
                       <th>Delete</th>
                   </tr>
               </thead>
@@ -104,8 +104,12 @@
                   <td>{{$booking->customer_phone}}</td>
                   <td>{{$booking->customer_mail}}</td>
                   <td>{{$booking->message}}</td>
-                  <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
-                  <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
+                  <td><a href="{{action('BookingController@edit', $booking->id)}}" class="btn btn-info fa fa-edit btn-sm"></a></td>
+                  <td><form action="{{action('BookingController@destroy',$booking->id )}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger fa fa-trash-alt btn-sm"></button>
+                     </form></td>
               </tr>  
                 @endforeach
               </tbody>
@@ -119,7 +123,7 @@
                     <th>Customer Phone</th>
                     <th>Customer Email</th>
                     <th>Booking Message</th>
-                    <th>Update</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                   </tr>
               </tfoot>

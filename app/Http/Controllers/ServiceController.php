@@ -62,9 +62,12 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $service = Service::find($id);
+        return view('dashboard/edit_service',compact('service'));
+
+        return redirect('service');
     }
 
     /**
@@ -74,9 +77,15 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request,$id)
     {
-        //
+        $service = Service::find($id);
+        $service->update([
+            'services_name'=>$request->services_name,
+            'services_price'=>$request->services_price,
+            'gender'=>$request->gender,
+        ]);
+        return redirect('service');
     }
 
     /**
@@ -85,8 +94,11 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        //
+        $service = Service::find($id);
+        $service->delete();
+
+        return redirect('service');
     }
 }

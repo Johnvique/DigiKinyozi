@@ -11,6 +11,6 @@ class Client extends Model
         'client_mail',
         'client_phone',
         'client_location',
-        'client_image',
+        'picture',
     ];
 }

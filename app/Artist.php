@@ -10,6 +10,6 @@ class Artist extends Model
         'artist_name',
         'artist_phone',
         'artist_role',
-        'artist_image',
+        'picture',
     ];
 }

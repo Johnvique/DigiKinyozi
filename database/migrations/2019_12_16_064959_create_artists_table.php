@@ -18,7 +18,7 @@ class CreateArtistsTable extends Migration
             $table->string('artist_name');
             $table->string('artist_phone');
             $table->string('artist_role');
-            $table->string('artist_image');
+            $table->string('picture');
             $table->timestamps();
         });
     }

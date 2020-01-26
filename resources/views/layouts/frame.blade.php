@@ -36,7 +36,7 @@
           <img class="img-sider rounded-circle" src="{{asset('images/kinyozi2.jpg')}}" alt="img-thumnail" 
           style="width: 5em; height: 5em">
         </div>
-        <div class="sidebar-brand-text mx-3"><em>Digital Kinyozi</em></div>
+        <div class="sidebar-brand-text mx-3"><em>Barbershop App</em></div>
       </a>
 
       <!-- Divider -->
@@ -67,20 +67,6 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Cuts Components:</h6>
           <a class="collapse-item" href="{{url('dashboard/service')}}">Add Services</a>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fa fa-bars"></i>
-          <span>Our Menu</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Menu Utilities:</h6>
-          <a class="collapse-item" href="{{url('dashboard/menu')}}">Add Menu</a>
           </div>
         </div>
       </li>
@@ -156,11 +142,10 @@
           <!-- Topbar Search -->
           <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-info" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
+              <div class="card">
+                <div class="card-body bg-info text-white">
+                  <h4>NDIRU DIGITAL KINYOZI</h4>
+                </div>
               </div>
             </div>
           </form>

@@ -12,10 +12,10 @@
           <i class="fa fa-file-excel" aria-hidden="true"></i>
         Export Excel
      </button>
-        <button type="button" class="btn btn-info" onclick="PrintDiv()">
-              <i class="fa fa-print" aria-hidden="true"></i>
-            Print
-        </button>
+     <button type="button" class="btn btn-info">
+      <i class="fa fa-file-pdf" aria-hidden="true"></i>
+    Download PDF
+    </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -30,7 +30,7 @@
             <div class="modal-body">
               <div class="card">
                 <div class="card-body">
-                <form action="{{route('client.store')}}" method="POST">
+                <form action="{{route('client.store')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                     <div class="form-group">
                       <label for="clin_name">Client Name</label>
@@ -49,8 +49,9 @@
                       <input type="text" class="form-control" name="client_location" id="clin_loc" placeholder="Location" required>
                     </div>
                     <div class="form-group">
-                      <label for="clin_img">Client Image</label>
-                      <input type="text" class="form-control" name="client_image" id="clin_img" placeholder="Image" required>
+                      <label for="image">Client Image: </label>
+                      <input type="file" name="picture" class="form-control" id="picture"  placeholder="Upload the Image Here"
+                       onchange="return imageval()">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Reset</button>
@@ -79,7 +80,7 @@
                       <th>Client Phone</th>
                       <th>Client Location</th>
                       <th>Client Image</th>
-                      <th>Update</th>
+                      <th>Edit</th>
                       <th>Delete</th>
                   </tr>
               </thead>
@@ -91,9 +92,13 @@
                   <td>{{$client->client_mail}}</td>
                   <td>{{$client->client_phone}}</td>
                   <td>{{$client->client_location}}</td>
-                  <td>{{$client->client_image}}</td>
-                  <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
-                  <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
+                  <td><img class="img-responsive" style="width:50px" src="{{asset('images/'.$client->picture)}}"/></td>
+                  <td><a href="{{action('ClientController@edit', $client->id)}}" class="btn btn-info fa fa-edit btn-sm"></a></td>
+                  <td><form action="{{action('ClientController@destroy',$client->id )}}" method="post">
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="btn btn-danger fa fa-trash-alt btn-sm"></button>
+                     </form></td>
               </tr>   
                 @endforeach
               </tbody>
@@ -105,7 +110,7 @@
                     <th>Client Phone</th>
                     <th>Client Location</th>
                     <th>Client Image</th>
-                    <th>Update</th>
+                    <th>Edit</th>
                     <th>Delete</th>
                   </tr>
               </tfoot>

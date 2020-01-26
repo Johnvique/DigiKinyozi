@@ -61,9 +61,12 @@ class MenuController extends Controller
      * @param  \App\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function edit(Menu $menu)
+    public function edit($id)
     {
-        //
+        $menu = Menu ::find($id);
+        return view('dashboard/edit_menu',compact('menu'));
+
+        return redirect('menu');
     }
 
     /**
@@ -73,9 +76,14 @@ class MenuController extends Controller
      * @param  \App\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Menu $menu)
+    public function update(Request $request,$id)
     {
-        //
+        $menu = Menu::find($id);
+        $menu->update([
+            'service_name'=>$request->service_name,
+            'service_price'=>$request->service_price,
+        ]);
+        return redirect('menu');
     }
 
     /**
@@ -84,8 +92,10 @@ class MenuController extends Controller
      * @param  \App\Menu  $menu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Menu $menu)
+    public function destroy($id)
     {
-        //
+        $menu = Menu::find($id);
+        $menu->delete();
+        return redirect('menu');
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use File;
 use App\Client;
 use Illuminate\Http\Request;
 
@@ -36,12 +36,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('picture')) {
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $fileNameToStore = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->move(public_path('images'), $fileNameToStore);
+        } else {
+            $fileNameToStore = 'default.jpg';
+        }
+
+
         $client = new Client;
         $client->client_name=$request->get ('client_name');
         $client->client_mail=$request->get ('client_mail');
         $client->client_phone=$request->get ('client_phone');
         $client->client_location=$request->get ('client_location');
-        $client->client_image=$request->get ('client_image');
+        $client->picture = $fileNameToStore;
 
         $client->save();
         return redirect()->back();
@@ -64,9 +75,12 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
-        //
+        $client = Client::find($id);
+        return view('dashboard/edit_client',compact('client'));
+
+        return redirect('client');
     }
 
     /**
@@ -76,9 +90,17 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request,$id)
     {
-        //
+        $client = Client::find($id);
+        $client->update([
+            'client_name'=>$request->client_name,
+            'client_mail'=>$request->client_mail,
+            'client_phone'=>$request->client_phone,
+            'client_location'=>$request->client_location,
+            'picture'=>$request->picture,
+        ]);
+        return redirect('client');
     }
 
     /**
@@ -87,8 +109,11 @@ class ClientController extends Controller
      * @param  \App\Client  $client
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        //
+        $client = Client::find($id);
+        file::delete('images/'.$client->picture);
+        $client->delete();
+        return redirect('client');
     }
 }

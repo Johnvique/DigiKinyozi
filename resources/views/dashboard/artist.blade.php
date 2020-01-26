@@ -12,10 +12,10 @@
           <i class="fa fa-file-excel" aria-hidden="true"></i>
         Export Excel
      </button>
-        <button type="button" class="btn btn-info" onclick="PrintDiv()">
-              <i class="fa fa-print" aria-hidden="true"></i>
-            Print
-        </button>
+     <button type="button" class="btn btn-info">
+      <i class="fa fa-file-pdf" aria-hidden="true"></i>
+    Download PDF
+    </button>
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -30,7 +30,7 @@
             <div class="modal-body">
               <div class="card">
                 <div class="card-body">
-                <form action="{{route('artist.store')}}" method="POST">
+                <form action="{{route('artist.store')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                     <div class="form-group">
                       <label for="user">Artist Name</label>
@@ -45,8 +45,9 @@
                       <input type="text" class="form-control" name="artist_role" id="post" placeholder="Position" required>
                     </div>
                     <div class="form-group">
-                      <label for="img">Artist Image</label>
-                      <input type="text" class="form-control" name="artist_image" id="img" placeholder="Image" required>
+                      <label for="image">Artist Image: </label>
+                      <input type="file" name="picture" class="form-control" id="picture"  placeholder="Upload the Image Here"
+                       onchange="return imageval()">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Reset</button>
@@ -74,7 +75,7 @@
                 <th>Phone Number</th>
                 <th>Role</th>
                 <th>Artist Image</th>
-                <th>Update</th>
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -85,9 +86,13 @@
             <td>{{$artist->artist_name}}</td>
             <td>{{$artist->artist_phone}}</td>
             <td>{{$artist->artist_role}}</td>
-            <td>{{$artist->artist_image}}</td>
-            <td><a  href="" class="btn btn-info fa fa-edit btn-sm"></a></td>
-            <td><a  href="" class="btn btn-danger fa fa-trash-alt btn-sm"></a></td>
+            <td><img class="img-responsive" style="width:50px" src="{{asset('images/'.$artist->picture)}}"/></td>
+            <td><a href="{{action('ArtistController@edit', $artist->id)}}" class="btn btn-info fa fa-edit btn-sm"></a></td>
+            <td><form action="{{action('ArtistController@destroy',$artist->id )}}" method="post">
+              @csrf
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn btn-danger fa fa-trash-alt btn-sm"></button>
+               </form></td>
         </tr>
           @endforeach
         </tbody>
@@ -98,7 +103,7 @@
               <th>Phone Number</th>
               <th>Role</th>
               <th>Artist Image</th>
-              <th>Update</th>
+              <th>Edit</th>
               <th>Delete</th>
             </tr>
         </tfoot>
